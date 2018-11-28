@@ -1,0 +1,29 @@
+// Command.h
+
+#include "stdafx.h"
+
+class Command{
+public:
+	int type; 
+	int op2; 
+	int calc;
+	/*
+	логика: чтение кода операции, дешифрация - 2 такта
+	операнд 1 - 1 такт
+	операнд 2 - op2 тактов
+	вычисление - calc тактов
+	запись результата - 1 такт
+	*/
+	int size;
+	std::vector<int> time;
+
+	Command();
+	Command generate(double pReg, double pType1, int memTime, int calcTime);
+	void getTimeMas();
+	void appendShift(int value);
+	void appendBack(int value);
+	void print();
+	void printNice();
+	int getTime();
+	~Command(){}
+};
